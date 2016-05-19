@@ -91,7 +91,7 @@ func balanceTeams (Dragons:[Dictionary<String, AnyObject>], Sharks : [Dictionary
     var s = Sharks;
     var r = Raptors;
 
-    while (i < rookiePlayers.count)
+    while (i < newPlayers.count)
     {
         switch(i % numOfTeams)
         {
@@ -101,7 +101,7 @@ func balanceTeams (Dragons:[Dictionary<String, AnyObject>], Sharks : [Dictionary
             default: "no team"
         
     }
-    i++
+        i += 1;
     }
 
 
@@ -109,7 +109,7 @@ func balanceTeams (Dragons:[Dictionary<String, AnyObject>], Sharks : [Dictionary
 }
 
 //calling balanceTeams will all Rookie players - Rookie = Expereince == False
-var teams = balanceTeams(Dragons, Sharks, Raptors, rookiePlayers)
+var teams = balanceTeams(Dragons, Sharks: Sharks, Raptors: Raptors, newPlayers: rookiePlayers)
 
 
 //Adding rookie players to thier repsective teams
@@ -119,7 +119,7 @@ Sharks = teams.Sharks
 
 
 //calling balance Teams with proPlayers - Pro = Expereince == True
-teams = balanceTeams(Dragons, Sharks, Raptors, proPlayers)
+teams = balanceTeams(Dragons, Sharks: Sharks, Raptors: Raptors, newPlayers: proPlayers)
 
 //Adding Pros to their repsective teams
 Dragons = teams.Dragons
@@ -135,10 +135,10 @@ func printLetter(teamName:String,time:String,day:String,roster:[Dictionary<Strin
     
     while (i < roster.count){
     print("Dear, \(roster[i][parents]!) \n\n \(roster[i][playerName]!) has been placed on a team!");
-        println("\n\nTeam name: \(teamName)!")
-        println("First Practice: \(day) @ \(time)")
-        println("\n Looking forward to a great season!!\n")
-        i++;
+        print("\n\nTeam name: \(teamName)!")
+        print("First Practice: \(day) @ \(time)")
+        print("\n Looking forward to a great season!!\n")
+        i += 1;
     
         
     }
@@ -148,14 +148,15 @@ func printLetter(teamName:String,time:String,day:String,roster:[Dictionary<Strin
 
 
 //printing out letters to all players
-println("***THE DRAGONS LINEUP ***\n")
-printLetter("Dragons", "1pm","March 17", Dragons);
+print("***THE DRAGONS LINEUP ***\n")
+printLetter("Dragons", time: "1pm",day: "March 17", roster: Dragons);
 
-println("***THE SHARKS LINEUP ***\n")
-printLetter("Sharks", "3pm", "March 17", Sharks);
+print("***THE SHARKS LINEUP ***\n")
+printLetter("Sharks", time: "3pm", day: "March 17", roster: Sharks);
 
-println("***THE RAPTORS LINEUP ***\n")
-printLetter("Raptors", "1pm", "March 18", Raptors);
+print("***THE RAPTORS LINEUP ***\n")
+printLetter("Raptors", time: "1pm", day: "March 18", roster: Raptors);
+
 
 
 
